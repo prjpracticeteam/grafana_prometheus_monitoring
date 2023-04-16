@@ -1,0 +1,23 @@
+---
+- name: Install Prometheus
+  hosts: prometheus
+  become: true
+
+  tasks:
+    - name: Add Prometheus repository
+      apt_repository:
+        repo: 'deb http://packages.prometheus.io/apt/prometheus $(lsb_release -cs) main'
+        state: present
+        update_cache: no
+        
+
+    - name: Install Prometheus
+      apt:
+        name: prometheus
+        state: present
+
+    - name: Start Prometheus
+      systemd:
+        name: prometheus
+        state: started
+        enabled: yes

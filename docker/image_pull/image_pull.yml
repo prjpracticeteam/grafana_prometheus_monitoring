@@ -1,0 +1,24 @@
+---
+- name: Pull and run Docker container
+  hosts: docker_image_pull
+  become: true
+
+  tasks:
+    - name: Login to Docker registry
+      docker_login:
+        username: vinodpatlolla
+        password: PvK@$2211
+
+    - name: Pull Docker image
+      docker_image:
+        name: tomcat
+        source: pull
+
+    - name: Run Docker container
+      docker_container:
+        name: sample_app
+        image: tomcat
+        ports:
+          - "9000:8080"
+        state: started
+
