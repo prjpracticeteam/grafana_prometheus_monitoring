@@ -1,0 +1,17 @@
+[alertmanager]
+172.31.10.52
+[prometheus]
+172.31.10.52 
+
+[node_exporter]
+172.31.20.17
+
+[grafana]
+172.31.10.52
+
+[vinod]
+172.31.20.17
+[patlolla]
+172.31.20.17
+[promtail_working]
+172.31.20.17

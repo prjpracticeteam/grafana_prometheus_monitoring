@@ -1,0 +1,43 @@
+---
+- hosts: alertmanager
+  become: yes
+  become_user: root
+  become_method: sudo
+  roles:
+    - alertmanager
+- hosts: prometheus
+  become: yes
+  become_user: root
+  become_method: sudo
+  roles:
+    - prometheus
+- hosts: node_exporter
+  become: yes
+  become_user: root
+  become_method: sudo
+  roles:
+    - prometheus_node_exporter
+- hosts: vinod
+  become: yes
+  become_user: root
+  become_method: sudo
+  roles:
+    - vinod
+- hosts: patlolla
+  become: yes
+  become_user: root
+  become_method: sudo
+  roles:
+    - patlolla
+- hosts: promtail_working
+  become: yes
+  become_user: root
+  become_method: sudo
+  roles:
+    - promtail_working
+- hosts: grafana
+  become: yes
+  become_user: root
+  become_method: sudo
+  roles:
+    - grafana
